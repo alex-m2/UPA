@@ -13,10 +13,13 @@ int e = a + 3;
 
 for (int a = 0;
 a < 3;a++) {
-int k = a;
+c
+} 
 
- } 
-
+for (int a = 0;
+a < 3;a++) {
+printf("%d", c);
+} 
 
 return 0;
 }

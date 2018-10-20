@@ -44,7 +44,7 @@ struct {
 
 %token <pont> ANYSOURCE
 %token PRINCIPAL
-%token <pont> IMPRIME
+%token <pont> IMPRIMA_INT
 
 %token <pont> IGUAL
 %token <pont> DIFERENTE
@@ -68,6 +68,7 @@ struct {
 %type <pont> exp
 %type <pont> menor
 %type <pont> for_comando
+%type <pont> imprima_int
 
 %right '='
 %left  '-' '+'
@@ -93,6 +94,8 @@ linha		: comando PONTOEVIRGULA { $$ = (struct No*)malloc(sizeof(struct No));
 comando		: atribuicao
 		| menor
 		| for_comando
+		| identificador
+		| imprima_int
 		;
 
 identificador	: VAR { $$ = (No*)malloc(sizeof(No));
@@ -100,8 +103,9 @@ identificador	: VAR { $$ = (No*)malloc(sizeof(No));
 				strcpy($$->nome, yylval.pont->nome);
 				$$->esq = NULL;
 			        $$->dir = NULL;			
-				}  
+				}   
 		;
+
 
 atribuicao	: INTEIRO identificador '=' exp { $$ = (No*)malloc(sizeof(No)); 
 					  	  $$->token = '='; 
@@ -128,12 +132,12 @@ exp		: NUM { $$ = (No*)malloc(sizeof(No));
 menor		: exp MENORQUE exp { $$ = (struct No*)malloc(sizeof(struct No));
                             	     $$->token = MENORQUE;
 				     $$->esq = $1;
-				     $$->dir = $3;
+				     $$->dir = $3; 
 			           }
 		;
 
 
-for_comando: 	 PARA ABRE_PAR comando PONTOEVIRGULA comando PONTOEVIRGULA identificador FECHA_PAR comando
+for_comando	: PARA ABRE_PAR comando PONTOEVIRGULA comando PONTOEVIRGULA identificador FECHA_PAR comando
                  	{ $$ = (struct No*)malloc(sizeof(struct No));
 			  $$->token = PARA;
 			  $$->lookahead = $3;
@@ -143,6 +147,13 @@ for_comando: 	 PARA ABRE_PAR comando PONTOEVIRGULA comando PONTOEVIRGULA identif
 			  $$->dir = NULL; 
 		 	} 
 		;
+
+imprima_int	: IMPRIMA_INT identificador { $$ = (struct No*)malloc(sizeof(struct No));
+					      $$->token = IMPRIMA_INT;
+					      $$->esq = $2;
+					      $$->dir = NULL;
+					    }
+;
 
 
 %%
@@ -192,7 +203,13 @@ void executa (struct No* raiz) {
 			      printf(")");
 			      printf(" {\n");
 			      executa(raiz->esq);
-			      printf("\n } \n");
+			      printf("\n} \n");
+			      break;
+			
+			case IMPRIMA_INT:
+			      printf("printf(\"%%d\", ");
+			      executa(raiz->esq);
+			      printf(");");
 			      break;
 			
 			case FIMPRINCIPAL:

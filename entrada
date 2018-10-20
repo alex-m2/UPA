@@ -5,7 +5,8 @@ inteiro b = 20;
 inteiro c = 30;
 inteiro d = 2 + 5;
 inteiro e = a + 3;
-para ( inteiro a = 0; a<3; a) inteiro k = a;
+para ( inteiro a = 0; a<3; a) c;
+para ( inteiro a = 0; a<3; a) imprima_int c;
 
 fimprincipal
 

@@ -29,7 +29,7 @@
 
 "fimprincipal" { return FIMPRINCIPAL;}
 
-"imprime"	{return IMPRIME; }
+"imprima_int"	{return IMPRIMA_INT; }
 
 [-+]?[0-9]+("."[0-9]*)?([eE]"-"?[0-9]*)? { yylval.pont->val = atof(yytext);
                                            return NUM;

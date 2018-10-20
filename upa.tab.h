@@ -56,7 +56,7 @@ extern int yydebug;
     PARA = 266,
     ANYSOURCE = 267,
     PRINCIPAL = 268,
-    IMPRIME = 269,
+    IMPRIMA_INT = 269,
     IGUAL = 270,
     DIFERENTE = 271,
     MAIORQUE = 272,
