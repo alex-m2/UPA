@@ -27,14 +27,21 @@
 
 "inteiro"	{ return INTEIRO; }
 
+"texto"		{ return TEXTO; }
+
 "fimprincipal" { return FIMPRINCIPAL;}
 
-"imprima_int"	{return IMPRIMA_INT; }
+"imprima_int"	{ return IMPRIMA_INT; }
+
+"imprima_msg"	{ return IMPRIMA_MSG; }
+
+"leia"		{return LEIA; }
+
 
 [-+]?[0-9]+("."[0-9]*)?([eE]"-"?[0-9]*)? { yylval.pont->val = atof(yytext);
                                            return NUM;
                                          }
-[a-zA-Z][a-zA-z0-9]* { strncpy(yylval.pont->nome, yytext, 256);
+("=")*[a-zA-Z][a-zA-z0-9]*(:)?("=")* { strncpy(yylval.pont->nome, yytext, 256);
                        return VAR;
                      }
 
@@ -49,7 +56,7 @@
 "{"    { return ABRE_CHAV; }
 "}"    { return FECHA_CHAV; }
 ";"    { return PONTOEVIRGULA; }
-
+ 
 
 
 [ \t\n]  /* Ignora */

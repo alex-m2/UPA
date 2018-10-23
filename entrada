@@ -1,14 +1,20 @@
 principal
 
-inteiro a = 10;
-inteiro b = 20;
-inteiro c = 30;
-inteiro d = 2 + 5;
-inteiro e = a + 3;
-para ( inteiro a = 0; a<3; a) c;
-para ( inteiro a = 0; a<3; a) imprima_int c;
+inteiro num;
+inteiro fatorial = 1;
+
+texto ==FATORIAL==;
+imprima_msg( ==FATORIAL== );
+
+texto Numero:;
+imprima_msg ( Numero );
+leia (num);
+
+para ( inteiro aux = 1; aux <= num; aux) 
+fatorial = fatorial * aux; 
+
+texto Fatorial:;
+imprima_msg (Fatorial);
+imprima_int ( fatorial );
 
 fimprincipal
-
-
-

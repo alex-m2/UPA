@@ -5,21 +5,24 @@
 #include <string.h>
 
 int main() {
-int a = 10;
-int b = 20;
-int c = 30;
-int d = 2 + 5;
-int e = a + 3;
+int num;
+int fatorial = 1;
+char* txt0= "==FATORIAL==";
+printf("%s\n", txt0);
 
-for (int a = 0;
-a < 3;a++) {
-c
-} 
+char* txt1= "Numero:";
+printf("%s\n", txt1);
 
-for (int a = 0;
-a < 3;a++) {
-printf("%d", c);
+scanf("%d", &num);
+
+for (int aux = 1;
+aux <= num;aux++) {
+fatorial = fatorial * aux;
 } 
+char* txt2= "Fatorial:";
+printf("%s\n", txt2);
+
+printf("%d\n", fatorial);
 
 return 0;
 }

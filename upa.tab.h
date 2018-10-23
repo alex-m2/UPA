@@ -50,25 +50,27 @@ extern int yydebug;
     IDENT = 260,
     MAIS = 261,
     INTEIRO = 262,
-    SE = 263,
-    SENAO = 264,
-    ENQUANTO = 265,
-    PARA = 266,
-    ANYSOURCE = 267,
-    PRINCIPAL = 268,
-    IMPRIMA_INT = 269,
-    IGUAL = 270,
-    DIFERENTE = 271,
-    MAIORQUE = 272,
-    MAIORIGUAL = 273,
-    MENORQUE = 274,
-    MENORIGUAL = 275,
-    ABRE_PAR = 276,
-    FECHA_PAR = 277,
-    ABRE_CHAV = 278,
-    FECHA_CHAV = 279,
-    PONTOEVIRGULA = 280,
-    FIMPRINCIPAL = 281
+    TEXTO = 263,
+    SE = 264,
+    SENAO = 265,
+    ENQUANTO = 266,
+    PARA = 267,
+    LEIA = 268,
+    PRINCIPAL = 269,
+    IMPRIMA_INT = 270,
+    IMPRIMA_MSG = 271,
+    IGUAL = 272,
+    DIFERENTE = 273,
+    MAIORQUE = 274,
+    MAIORIGUAL = 275,
+    MENORQUE = 276,
+    MENORIGUAL = 277,
+    ABRE_PAR = 278,
+    FECHA_PAR = 279,
+    ABRE_CHAV = 280,
+    FECHA_CHAV = 281,
+    PONTOEVIRGULA = 282,
+    FIMPRINCIPAL = 283
   };
 #endif
 
@@ -81,7 +83,7 @@ union YYSTYPE
 
 struct {
   int token;
-  int val;
+  int val; 
   char nome[256];
 
   struct No *esq, *dir, *prox, *lookahead, *lookahead1, *lookahead2;
@@ -91,7 +93,7 @@ struct {
 
  int token;
 
-#line 95 "upa.tab.h" /* yacc.c:1909  */
+#line 97 "upa.tab.h" /* yacc.c:1909  */
 };
 
 typedef union YYSTYPE YYSTYPE;
